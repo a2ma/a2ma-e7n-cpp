@@ -1,0 +1,4 @@
+﻿  chapter.6.7.cpp
+C:\Users\ruway\OneDrive\000-a2ma-b5h\a2ma-e7n\a2ma-e7n-ind\computer-science\2020-cpp-stroustrup\Code\Programming-code\Chapter06\chapter.6.7.cpp(81): warning C4715: 'Token_stream::get': not all control paths return a value
+C:\Users\ruway\OneDrive\000-a2ma-b5h\a2ma-e7n\a2ma-e7n-ind\computer-science\2020-cpp-stroustrup\Code\Programming-code\Chapter06\chapter.6.7.cpp(110): warning C4715: 'primary': not all control paths return a value
+  Ch6.vcxproj -> D:\compdev\c-family\c++\Ch6\Debug\Ch6.exe
