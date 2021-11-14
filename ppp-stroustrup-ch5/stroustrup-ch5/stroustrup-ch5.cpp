@@ -13,15 +13,86 @@ double ctok(double c)
 	return k;
 }
 
+double ktoc(double k)
+{
+	if (k < 0) error("Invalid temperature: lower than absolute zero kelvin.");
+	double c = k - 273.15;
+	return c;
+}
+
+double ctof(double c)
+{
+	if (c < -273.15) error("Invalid temperature: lower than absolute zero kelvin.");
+	double f = 9.0 / 5 * c + 32;
+	return f;
+}
+
+double ftoc(double f)
+{
+	if (f < -459.67) error("Invalid temperature: lower than absolute zero kelvin.");
+	double c = 5 * (f - 32)/9.0;
+	return c;
+}
+
+void quadroot(double a, double b, double c)
+{
+	if (b * b - 4 * a * c < 0) cout << "No real roots.\n";
+	else
+	{
+		double root1 = (-1 * b + sqrt(b * b - 4 * a * c)) / 2 * a;
+		double root2 = (-1 * b - sqrt(b * b - 4 * a * c)) / 2 * a;
+		cout << "The roots of a quadratic equation with these values are: " << root1 << " and "
+			<< root2 << ".\n";
+	}
+}
+
+void sumn()
+{
+	int n = 0;
+	int sum = 0;
+	string numlist = "";
+	cout << "Please enter the number of values you want to sum.\n";
+	cin >> n;
+	vector<int> nums;
+	cout << "Please enter some integers (press '|' to stop):\n";
+	for (int temp; cin >> temp;)
+	{
+		nums.push_back(temp);
+	}
+	if (n > nums.size()) error("Number of values to be summed is greater than number of values given.");
+	for (int i = 0; i < n; i++)
+	{
+		sum += nums[i];
+	}
+
+	cout << "The sume of the " << n << " first numbers";
+}
+
 int main()
 {
 	try {
-
-		double c = 0;
-		cin >> c;
-		/*if (c < -273.15) error("Invalid temperature: lower than absolute zero kelvin.");*/
-		double k = ctok(c);
-		cout << k << '/n';
+		//double c = 0;
+		//double k = 0;
+		//double k2 = 273.15;
+		////cin >> c;
+		///*if (c < -273.15) error("Invalid temperature: lower than absolute zero kelvin.");*/
+		//double k3 = ctok(c);
+		//cout << k3 << "\n";
+		//double c2 = ktoc(k); // should be -273.15
+		//cout << c2 << "\n";
+		//double c3 = ktoc(k2); // should be 0
+		//cout << c3 << "\n";
+		////double c4 = ktoc(-300.5); // error
+		////cout << c4 << "\n";
+		//double f = ctof(-273.15); // -459.67
+		//cout << f << "\n";
+		//f = ctof(0); // 32
+		//cout << f << "\n";
+		//c3 = ftoc(32); // should be 0
+		//cout << c3 << "\n";
+		/*quadroot(1, 4, -21);
+		quadroot(1, -3, 4);*/
+		sumn();
 	}
 	catch (runtime_error& e)
 	{
