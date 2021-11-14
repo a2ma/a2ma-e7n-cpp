@@ -1,66 +1,55 @@
 #include "../../std_lib_facilities.h"
 
-// ask user for a yes-or-no answer;
-// return 'b' to indicate a bad answer (i.e., not yes or no)
-char ask_user(string question)
-{
-	cout << question << "? (yes or no)\n";
-	string answer = " ";
-	cin >> answer;
-	if (answer == "y" || answer == "yes") return 'y';
-	if (answer == "n" || answer == "no") return 'n';
-	return 'b';    // 'b' for "bad answer"
-}
-
-//int area(int length, int width)
-//{
-//	return length * width;
-//}
-
-int area(int length, int width);    // calculate area of a rectangle
-
-int framed_area(int x, int y)       // calculate area within frame
-{
-	const int frame_width = 2;
-	cout << x - frame_width << "\n";
-	cout << y - frame_width << "\n";
-	if (x - frame_width <= 0 || y - frame_width <= 0)
-		error("non-positive argument for area() called by framed_area()");
-	return area(x - frame_width, y - frame_width);
-}
-
-int area(int length, int width)
-{
-	if (length <= 0 || width <= 0) return -1;
-	return length * width;
-}
-
-void f(int x, int y, int z)
-{
-	cout << "x=" << x << "; y=" << y << "; z=" << z << endl;
-
-	int area1 = area(x, y);
-	if (area1 <= 0) error("non-positive area");
-	int area2 = framed_area(1, z);
-	int area3 = framed_area(y, z);
-	double ratio = double(area1) / area3;
-	// ...
-
-	cout << "area1=" << area1 << endl
-		<< "area2=" << area2 << endl
-		<< "area3=" << area3 << endl;
-}
-
 //constexpr int frame_width = 2;
 //int framed_area(int x, int y)
 //{
 //	return area(x - frame_width, y - frame_width);
 //}
 
+double ctok(double c)
+{
+	if (c < -273.15) error("Invalid temperature: lower than absolute zero kelvin.");
+	double k = c + 273.15;
+	return k;
+}
+
 int main()
 {
+	try {
 
+		double c = 0;
+		cin >> c;
+		/*if (c < -273.15) error("Invalid temperature: lower than absolute zero kelvin.");*/
+		double k = ctok(c);
+		cout << k << '/n';
+	}
+	catch (runtime_error& e)
+	{
+		cout << e.what();
+	}
+	// start pasted from chapter.5.7-problematic.cpp
+	//vector<double> temps; // temperatures 
 
+	//double temp = 0;
+	//double sum = 0;
+	//double high_temp = 0;
+	//double low_temp = 0;
+
+	//while (cin >> temp)         // read and put into temps
+	//	temps.push_back(temp);
+
+	//for (int i = 0; i < temps.size(); ++i)
+	//{
+	//	if (temps[i] > high_temp) high_temp = temps[i];  // find high
+	//	if (temps[i] < low_temp)  low_temp = temps[i];  // find low
+	//	sum += temps[i];      // compute sum
+	//}
+
+	//cout << "High temperature: " << high_temp << endl;
+	//cout << "Low temperature: " << low_temp << endl;
+	//cout << "Average temperature: " << sum / temps.size() << endl;
+
+	// end pasted from chapter.5.7-problematic.cpp
 	//vector<double> v(10);
 	//vector<int> v2(10);
 
@@ -202,25 +191,25 @@ int main()
 		return 2;
 	}*/
 
-	try
-	{
-		f(3, 3, 3);
-		f(-1, 2, 3);
-		f(1, -2, 3);
-		f(-1, -2, 3);
-		f(1, 2, -3);
-		f(-1, 2, -3);
-		f(1, -2, -3);
-		f(-1, -2, -3);
-		char answer = ask_user("Have you read results?");
-	}
-	catch (exception& e) {
-		cerr << "error: " << e.what() << '\n';
-		return 1;
-	}
-	catch (...) {
-		cerr << "Oops: unknown exception!\n";
-		return 2;
+	//try
+	//{
+	//	f(3, 3, 3);
+	//	f(-1, 2, 3);
+	//	f(1, -2, 3);
+	//	f(-1, -2, 3);
+	//	f(1, 2, -3);
+	//	f(-1, 2, -3);
+	//	f(1, -2, -3);
+	//	f(-1, -2, -3);
+	//	char answer = ask_user("Have you read results?");
+	//}
+	//catch (exception& e) {
+	//	cerr << "error: " << e.what() << '\n';
+	//	return 1;
+	//}
+	//catch (...) {
+	//	cerr << "Oops: unknown exception!\n";
+	//	return 2;
 
-	}
+	//}
 }
