@@ -53,19 +53,32 @@ void sumn()
 	string numlist = "";
 	cout << "Please enter the number of values you want to sum.\n";
 	cin >> n;
+	if (!n)
+	{
+		error("invalid integer provided for number of values.");
+	}
 	vector<int> nums;
 	cout << "Please enter some integers (press '|' to stop):\n";
 	for (int temp; cin >> temp;)
 	{
+		if (!temp)
+		{
+
+		}
 		nums.push_back(temp);
 	}
-	if (n > nums.size()) error("Number of values to be summed is greater than number of values given.");
+	if (n > nums.size()) error("Error. Number of values to be summed is greater than number of values given.");
 	for (int i = 0; i < n; i++)
 	{
 		sum += nums[i];
 	}
 
-	cout << "The sume of the " << n << " first numbers";
+	cout << "The sum of the " << n << " first numbers (";
+	for (int i = 0; i < n; i++)
+	{
+		cout << " " << nums[i] << " ";
+	}
+	cout << ") is " << sum << ".";
 }
 
 int main()

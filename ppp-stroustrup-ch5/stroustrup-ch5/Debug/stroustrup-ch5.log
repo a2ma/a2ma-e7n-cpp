@@ -1,2 +1,3 @@
 ﻿  stroustrup-ch5.cpp
+D:\compdev\c-family\a2ma-e7n-cpp\ppp-stroustrup-ch5\stroustrup-ch5\stroustrup-ch5.cpp(66,8): warning C4018: '>': signed/unsigned mismatch
   stroustrup-ch5.vcxproj -> D:\compdev\c-family\a2ma-e7n-cpp\ppp-stroustrup-ch5\Debug\stroustrup-ch5.exe
